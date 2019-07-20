@@ -1,0 +1,17 @@
+.item-list__inner{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #292928;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.item-list__item{
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.item-list__name{
+  padding: 15px;
+  font-size: 22px;
+  display: block;
+}

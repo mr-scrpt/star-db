@@ -1,0 +1,19 @@
+.planet-random{
+  border-radius: 8px;
+  background-color: #292928;
+}
+
+.planet-random__inner{
+  display: flex;
+  padding: 15px 0;
+}
+.planet-random__visual{
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 15px;
+}
+.planet-random__info-block{
+  margin-left: 15px;
+}

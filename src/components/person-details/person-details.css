@@ -1,0 +1,22 @@
+.person-details__inner{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #292928;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.person-details__visual{
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 200px;
+  max-height: 200px;
+}
+.person-details__img{
+  max-width: 200px;
+  max-height: 200px;
+  display: block;
+}

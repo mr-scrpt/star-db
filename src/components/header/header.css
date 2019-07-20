@@ -1,0 +1,37 @@
+.header__inner{
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+};
+.logo-name{
+  margin-right: 15px;
+}
+.header__link{
+  font-size: 42px;
+  color: #fff;
+
+}
+.menu-top{
+  margin-left: 15px;
+  display: flex;
+  background-color: #292928;
+  border-radius: 4px;
+}
+.menu-top__item{
+  margin: 0 5px;
+  border-right: 1px solid #fff;
+}
+.menu-top__item:last-child{
+  border-right: none;
+}
+
+.menu-top__link{
+  padding: 5px 10px;
+  display: block;
+  color: green;
+  font-size: 24px;
+}
+
+.menu-top__link:hover{
+  color: #fff;
+}
