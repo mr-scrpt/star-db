@@ -9,6 +9,7 @@
 
 .item-list__item{
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
 }
 .item-list__name{
   padding: 15px;

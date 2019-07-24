@@ -1,4 +1,4 @@
-.person-details__inner{
+.details__inner{
   margin-top: 40px;
   display: flex;
   flex-direction: column;
@@ -8,15 +8,19 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-
-.person-details__visual{
+.details__visual{
   border-radius: 8px;
   overflow: hidden;
   max-width: 200px;
   max-height: 200px;
 }
-.person-details__img{
+.details__img{
   max-width: 200px;
   max-height: 200px;
   display: block;
+}
+.details__select{
+  padding: 50px 0;
+  font-size: 24px;
+  color: peachpuff;
 }
