@@ -1,51 +1,46 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './page-people.css';
 import ItemList from "../item-list";
 import Details from "../details";
-import ErrorContent from "../error-content";
+import ErrorBoundary from '../error-boundary';
 import Api from '../../services/swapi-sevices';
 import Row from '../row';
 
 
-export default class PagePeople extends Component{
-    state = {
-        activePerson: null,
-        appError: false
-    };
+export default class PagePeople extends Component {
+  state = {
+    activePerson: null
+  };
 
-    api = new Api();
+  api = new Api();
 
-    componentDidCatch(error, errorInfo) {
-        this.setState({
-            appError: true
-        })
-    }
+  getPerson = (person) => {
+    this.setState({
+      activePerson: person
+    });
 
-    getPerson = (person)=> {
-        this.setState({
-            activePerson: person
-        });
-    };
+  };
 
 
-    render() {
-        const { activePerson, appError } = this.state;
+  render() {
+    const {activePerson} = this.state;
 
-        if (appError){
-            return <ErrorContent/>
-        }
-        const itemList = (
-            <ItemList
-                onItemSelected={this.getPerson}
-                getData={this.api.getAllPeople}
-                renderItem={(item)=> (<div> {item.name} - {item.gender} </div>)}/>
-        );
-        const personDetails = (
-            <Details activePerson={ activePerson } />
-        );
-        return(
-            <Row left={itemList} right={personDetails} />
-        )
-    }
+
+    const itemList = (
+      <ItemList onItemSelected={this.getPerson} getData={this.api.getAllPeople}>
+
+        {(item) => (<div> {item.name}: {item.gender} </div>)}
+
+      </ItemList>
+    );
+    const personDetails = (
+      <Details activePerson={activePerson}/>
+    );
+    return (
+      <ErrorBoundary>
+        <Row left={itemList} right={personDetails}/>
+      </ErrorBoundary>
+    )
+  }
 }
