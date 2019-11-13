@@ -3,7 +3,7 @@ import { SwConsumer } from '../api-sw';
 
 
 
-const withSwapi = (Wrapped, mapMethodsToProps) =>{
+const withSwapi = (mapMethodsToProps) => (Wrapped) =>{
   return  (props) => {
     return (
       <SwConsumer>

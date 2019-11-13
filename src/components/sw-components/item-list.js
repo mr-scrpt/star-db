@@ -1,53 +1,53 @@
-import React from 'react';
-import ItemList from '../item-list';
-import {withData, withSwapi} from '../hoc-hepers';
+import React from "react";
+import ItemList from "../item-list";
+import {
+  withData,
+  withSwapi,
+  compose,
+  withChildFunction
+} from "../hoc-helpers";
 
+const tplToAll = ({ name }) => <span> {name} </span>;
+const tplStarship = ({ name, model }) => (
+  <span>
+    {name} ({model})
+  </span>
+);
 
-const withChildFunction = (Component, child) => {
-  return (props) => {
-    return <Component {...props}>{child}</Component>
-  }
-};
-
-const tplToAll = ({name}) => <span> {name} </span>;
-const tplStarshop = ({name, model}) => <span>{name} ({model})</span>;
-
-const mapPersonMethodsToProps = (api) => {
-  return{
+const mapPersonMethodsToProps = api => {
+  return {
     getData: api.getAllPeople
-  }
+  };
 };
 
-const mapPlanetMethodsToProps = (api) => {
-  return{
+const mapPlanetMethodsToProps = api => {
+  return {
     getData: api.getAllPlanets
-  }
+  };
 };
 
-const mapStarshipMethodsToProps = (api) => {
-  return{
+const mapStarshipMethodsToProps = api => {
+  return {
     getData: api.getAllStarships
-  }
+  };
 };
 
-const PersonList = withSwapi(
-  withData(withChildFunction(ItemList, tplToAll)),
-  mapPersonMethodsToProps
-);
+const PersonList = compose(
+  withSwapi(mapPersonMethodsToProps),
+  withData,
+  withChildFunction(tplToAll)
+)(ItemList);
 
-const PlanetList = withSwapi(
-  withData(withChildFunction(ItemList, tplToAll)),
-  mapPlanetMethodsToProps
-);
+const PlanetList = compose(
+  withSwapi(mapPlanetMethodsToProps),
+  withData,
+  withChildFunction(tplToAll)
+)(ItemList);
 
-const StarshipList = withSwapi(
-  withData(withChildFunction(ItemList, tplStarshop)),
-  mapStarshipMethodsToProps
-);
+const StarshipList = compose(
+  withSwapi(mapStarshipMethodsToProps),
+  withData,
+  withChildFunction(tplStarship)
+)(ItemList);
 
-
-export {
-  PersonList,
-  PlanetList,
-  StarshipList
-}
+export { PersonList, PlanetList, StarshipList };

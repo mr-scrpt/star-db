@@ -54,6 +54,7 @@ export default class SwapiService {
     }
   };
 
+
   getResources = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
     if (!res.ok) {
