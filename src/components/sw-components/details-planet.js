@@ -4,10 +4,14 @@ import Details, { Record } from "../details";
 
 const PlanetDetails = ({ item, loaded }) => (
   <Details item={item} loaded={loaded}>
-    <Record field="model" label="Модель" item={item} />
-    <Record field="length" label="Длина" item={item} />
-    <Record field="length" label="Длина" item={item} />
-    <Record field="costInCredits" label="Цена" item={item} />
+    <Record field="name" label="Название" item={item} />
+    <Record
+      field="rotationPeriod"
+      label="Оборот вокруг своей оси"
+      item={item}
+    />
+    <Record field="population" label="Население" item={item} />
+    <Record field="diameter" label="Диаметр" item={item} />
   </Details>
 );
 

@@ -7,7 +7,14 @@ import PlanetRandom from "../planet-random";
 
 import Api from "../../services/swapi-sevices";
 
-import { PeoplePage, PlanetsPage, StarshipsPage } from "../pages";
+import {
+  PeoplePage,
+  PlanetsPage,
+  StarshipsPage,
+  StarshipPage,
+  PlanetPage,
+  PersonPage
+} from "../pages";
 import StarshipDetails from "../sw-components/details-starship";
 
 export default class App extends Component {
@@ -21,16 +28,34 @@ export default class App extends Component {
         <SwProvider value={this.state.api}>
           <Router>
             <Header />
-            <PlanetRandom updInterval={10000} />
+            <PlanetRandom updInterval={100000} />
             <Route
               path="/"
               render={() => <h2>Главная страница приложения</h2>}
               exact
             />
-            <Route path="/people" component={PeoplePage} />
-            <Route path="/planets" component={PlanetsPage} />
+            <Route path="/people" component={PeoplePage} exact />
+            <Route path="/planets" component={PlanetsPage} exact />
             <Route path="/starships" component={StarshipsPage} exact />
-            <Route path="/starships/:id" component={StarshipDetails} />
+
+            <Route
+              path="/people/:id"
+              render={({ match }) => {
+                return <PersonPage id={match.params.id} />;
+              }}
+            />
+            <Route
+              path="/planets/:id"
+              render={({ match }) => {
+                return <PlanetPage id={match.params.id} />;
+              }}
+            />
+            <Route
+              path="/starships/:id"
+              render={({ match }) => {
+                return <StarshipPage id={match.params.id} />;
+              }}
+            />
           </Router>
         </SwProvider>
       </div>
