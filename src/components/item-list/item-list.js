@@ -6,7 +6,7 @@ import "./item-list.css";
 const ItemList = props => {
   const { data, onItemSelected, onLoadList, children: renderLabel } = props;
 
-  if (data) {
+  if (data && onLoadList) {
     onLoadList();
   }
 

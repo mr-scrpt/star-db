@@ -34,16 +34,10 @@ export default class App extends Component {
               render={() => <h2>Главная страница приложения</h2>}
               exact
             />
-            <Route path="/people" component={PeoplePage} exact />
+            <Route path="/people/:id?" component={PeoplePage} exact />
             <Route path="/planets" component={PlanetsPage} exact />
             <Route path="/starships" component={StarshipsPage} exact />
 
-            <Route
-              path="/people/:id"
-              render={({ match }) => {
-                return <PersonPage id={match.params.id} />;
-              }}
-            />
             <Route
               path="/planets/:id"
               render={({ match }) => {
